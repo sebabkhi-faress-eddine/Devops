@@ -1,0 +1,25 @@
+# 1. Define the execution order of your stages
+stages:
+  - build
+  - test
+  - deploy
+
+# 2. Build Stage
+build_job:
+  stage: build
+  script:
+    - echo "Building project..."
+
+# 3. Test Stage
+test_job:
+  stage: test
+  script:
+    - echo "Running automated tests..."
+
+# 4. Deploy Stage (Runs only on main/master)
+deploy_job:
+  stage: deploy
+  script:
+    - echo "Deploying application..."
+  only:
+    - main
